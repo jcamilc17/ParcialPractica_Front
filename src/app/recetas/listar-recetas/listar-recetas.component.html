@@ -1,0 +1,14 @@
+<div class="container">
+  <h2>Listado de Recetas</h2>
+  <div class="grid">
+    <div class="card" *ngFor="let receta of recetas">
+      <img [src]="receta.imagen" alt="{{ receta.nombre }}">
+      <h3>{{ receta.nombre }}</h3>
+      <p><strong>Descripción:</strong> {{ receta.descripcion }}</p>
+      <p><strong>Duración:</strong> {{ receta.duracion }} min</p>
+      <p><strong>Dificultad:</strong> {{ receta.dificultad }}</p>
+      <p><strong>Estrellas:</strong> ⭐ {{ receta.estrellas }}</p>
+      <p><strong>Autor:</strong> {{ receta.autorReceta }}</p>
+    </div>
+  </div>
+</div>
