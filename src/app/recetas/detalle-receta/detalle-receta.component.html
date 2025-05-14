@@ -1,18 +1,16 @@
-<dl>
-  <dt>Nombre:</dt>
-  <dd>{{ receta.nombre }}</dd>
-
-  <dt>Descripción:</dt>
-  <dd>{{ receta.descripcion }}</dd>
-
-  <dt>Ingredientes:</dt>
-  <dd>{{ receta.ingredientes }}</dd>
-
-  <dt>Cantidad de Opiniones:</dt>
-  <dd>{{ receta.cantidadOpiniones }}</dd>
-
-  <dt>Puntaje Promedio:</dt>
-  <dd>{{ receta.puntajePromedio }}</dd>
-</dl>
-
-<hr />
+<div class="detalle-receta">
+  <div class="imagen">
+    <img [src]="receta.imagen" alt="{{ receta.nombre }}" />
+  </div>
+  <div class="contenido">
+    <h2>{{ receta.nombre }}</h2>
+    <p><strong>Descripción</strong><br />{{ receta.descripcion }}</p>
+    <p><strong>Ingredientes</strong><br />{{ receta.ingredientes }}</p>
+    <p><strong>Autor de la receta:</strong> {{ receta.autorReceta }}</p>
+    <p><strong>Más info:</strong><br />
+      Dificultad: {{ receta.dificultad }} |
+      Duración: {{ receta.duracion }}<br />
+      Categoría: {{ receta.categoria }}
+    </p>
+  </div>
+</div>

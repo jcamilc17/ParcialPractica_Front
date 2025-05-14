@@ -3,6 +3,15 @@
   <p><strong>⭐ Promedio de estrellas:</strong> {{ promedioEstrellas }}</p>
   <p><strong>📝 Total de reseñas:</strong> {{ totalResenias }}</p>
 
+  <!-- DETALLE de receta (arriba del grid) -->
+  <app-detalle-receta
+    *ngIf="recetaSeleccionada"
+    [receta]="recetaSeleccionada"
+  ></app-detalle-receta>
+
+  <hr />
+
+  <!-- GRID de tarjetas de recetas -->
   <div class="grid">
     <div class="card" *ngFor="let receta of recetas" (click)="seleccionarReceta(receta)">
       <img [src]="receta.imagen" alt="{{ receta.nombre }}">
@@ -14,8 +23,4 @@
       <p><strong>Autor:</strong> {{ receta.autorReceta }}</p>
     </div>
   </div>
-
-  <hr />
-
-  <app-detalle-receta *ngIf="recetaSeleccionada" [receta]="recetaSeleccionada"></app-detalle-receta>
 </div>

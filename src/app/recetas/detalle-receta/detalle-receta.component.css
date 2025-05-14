@@ -1,0 +1,25 @@
+.detalle-receta {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .detalle-receta .imagen img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .detalle-receta .contenido {
+    flex: 1;
+  }
+  
+  .detalle-receta h2 {
+    margin-top: 0;
+  }
+  

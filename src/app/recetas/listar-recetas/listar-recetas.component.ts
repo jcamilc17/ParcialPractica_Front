@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { RecetasService } from '../recetas.service';
 import { Recetas } from '../recetas';
 import { CommonModule } from '@angular/common';
+import { DetalleRecetaComponent } from '../detalle-receta/detalle-receta.component';
 
 @Component({
   standalone: true,
   selector: 'app-listar-recetas',
-  imports: [CommonModule],
+  imports: [CommonModule, DetalleRecetaComponent],
   templateUrl: './listar-recetas.component.html',
   styleUrls: ['./listar-recetas.component.css']
 })
