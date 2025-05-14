@@ -1,7 +1,10 @@
 <div class="container">
   <h2>Listado de Recetas</h2>
+  <p><strong>⭐ Promedio de estrellas:</strong> {{ promedioEstrellas }}</p>
+  <p><strong>📝 Total de reseñas:</strong> {{ totalResenias }}</p>
+
   <div class="grid">
-    <div class="card" *ngFor="let receta of recetas">
+    <div class="card" *ngFor="let receta of recetas" (click)="seleccionarReceta(receta)">
       <img [src]="receta.imagen" alt="{{ receta.nombre }}">
       <h3>{{ receta.nombre }}</h3>
       <p><strong>Descripción:</strong> {{ receta.descripcion }}</p>
@@ -11,4 +14,8 @@
       <p><strong>Autor:</strong> {{ receta.autorReceta }}</p>
     </div>
   </div>
+
+  <hr />
+
+  <app-detalle-receta *ngIf="recetaSeleccionada" [receta]="recetaSeleccionada"></app-detalle-receta>
 </div>

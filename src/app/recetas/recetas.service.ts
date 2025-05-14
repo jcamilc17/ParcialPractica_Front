@@ -10,6 +10,7 @@ import { Recetas } from './recetas';
 export class RecetasService {
 
   private apiUrl: string = environment.baseUrl;
+  private recetas: Recetas[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -17,5 +18,26 @@ export class RecetasService {
     console.log("Animales",this.http.get<Recetas[]>(this.apiUrl));
     return this.http.get<Recetas[]>(this.apiUrl);
   }
+
+  ccalcularPromedio(callback: (promedio: string) => void): void {
+    this.getARecetas().subscribe(recetas => {
+      if (recetas.length === 0) {
+        callback('0.00');
+        return;
+      }
+
+      const total = recetas.reduce((sum, r) => sum + r.estrellas, 0);
+      const promedio = total / recetas.length;
+      callback(promedio.toFixed(2));
+    });
+  }
+  calcularTotalOpiniones(callback: (total: number) => void): void {
+    this.getARecetas().subscribe(recetas => {
+      const total = recetas.reduce((sum, r) => sum + r.cantidadOpiniones, 0);
+      callback(total);
+    });
+  }
+  
+  
 
 }

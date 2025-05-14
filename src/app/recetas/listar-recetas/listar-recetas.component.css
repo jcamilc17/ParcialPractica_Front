@@ -1,10 +1,18 @@
+h2 {
+  background-color: #321152;
+  color: white;
+  border-radius: 12px;
+  padding: 10px 15px;
+  text-align: center;
+}
+
 .container {
     padding: 20px;
   }
   
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3,1fr);
     gap: 20px;
   }
   

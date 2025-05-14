@@ -13,6 +13,14 @@ import { CommonModule } from '@angular/common';
 export class ListarRecetasComponent implements OnInit {
 
   recetas: Recetas[] = [];
+  promedioEstrellas: string = '';
+  totalResenias: number = 0;
+  recetaSeleccionada: Recetas | null = null;
+
+  seleccionarReceta(receta: Recetas) {
+    this.recetaSeleccionada = receta;
+  }
+
 
   constructor(private recetasService: RecetasService) {}
 
@@ -20,6 +28,17 @@ export class ListarRecetasComponent implements OnInit {
     this.recetasService.getARecetas().subscribe((data: Recetas[]) => {
       this.recetas = data;
     });
+
+    this.recetasService.ccalcularPromedio(prom => {
+      this.promedioEstrellas = prom;
+    });
+    
+    this.recetasService.calcularTotalOpiniones(total => {
+      this.totalResenias = total;
+    });
+
+    
+    
   }
 
 }
